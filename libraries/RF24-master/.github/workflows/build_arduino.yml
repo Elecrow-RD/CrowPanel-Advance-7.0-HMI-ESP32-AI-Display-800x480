@@ -1,0 +1,163 @@
+name: Arduino CLI build
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - ".github/workflows/build_arduino.yml"
+      - "examples/**"
+      - "!examples/old_backups/**"
+      - "RF24.*"
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/build_arduino.yml"
+      - "examples/**"
+      - "!examples/old_backups/**"
+
+jobs:
+  build:
+    uses: nRF24/.github/.github/workflows/build_arduino.yaml@main
+    with:
+      sketch-paths: |
+        - examples/GettingStarted
+        - examples/AcknowledgementPayloads
+        - examples/ManualAcknowledgements
+        - examples/StreamingData
+        - examples/MulticeiverDemo
+        - examples/InterruptConfigure
+        - examples/scanner
+        - examples/encodeRadioDetails
+      # The following examples still exist for posterity. They don't trigger this workflow
+      #   - examples/old_backups/GettingStarted_HandlingFailures
+      #   - examples/old_backups/pingpair_dyn
+      #   - examples/old_backups/pingpair_irq
+      #   - examples/old_backups/pingpair_multi_dyn
+      #   - examples/old_backups/pingpair_sleepy
+      #   - examples/old_backups/TransferTimeouts
+      #   - examples/old_backups/recipes/led_remote
+      #   - examples/old_backups/recipes/nordic_fob
+      #   - examples/old_backups/recipes/pingpair_maple
+      fqbn: ${{ matrix.fqbn }}
+      enable-deltas-report: ${{ matrix.enable-deltas-report }}
+      # install earlphilhower's arduino-pico platform index
+      platforms: |
+        - name: rp2040:rp2040
+          source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+        - name: arduino:avr
+        - name: arduino:megaavr
+        - name: arduino:sam
+        - name: arduino:samd
+        - name: arduino:mbed
+    strategy:
+      fail-fast: false
+      matrix:
+        fqbn:
+          - "arduino:avr:yun"
+          - "arduino:avr:uno"
+          - "arduino:avr:diecimila"
+          - "arduino:avr:mega"
+          - "arduino:avr:megaADK"
+          - "arduino:avr:leonardo"
+          - "arduino:avr:micro"
+          - "arduino:avr:esplora"
+          - "arduino:avr:mini"
+          - "arduino:avr:ethernet"
+          - "arduino:avr:fio"
+          - "arduino:avr:bt"
+          # - "arduino:avr:LilyPad"  # board not found
+          - "arduino:avr:LilyPadUSB"
+          - "arduino:avr:pro"
+          - "arduino:avr:atmegang"
+          - "arduino:avr:robotControl"
+          - "arduino:avr:robotMotor"
+          # - "arduino:avr:gemma"  # does not support SPI
+          - "arduino:avr:circuitplay32u4cat"
+          - "arduino:avr:yunmini"
+          - "arduino:avr:chiwawa"
+          - "arduino:avr:one"
+          - "arduino:avr:unowifi"
+          - "arduino:mbed:nano33ble"
+          - "arduino:mbed:nanorp2040connect"
+          - "rp2040:rp2040:rpipico"
+          - "rp2040:rp2040:rpipicow"
+          - "rp2040:rp2040:adafruit_feather"
+          - "arduino:samd:mkr1000"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:mkrwifi1010"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:nano_33_iot"
+          - "arduino:samd:mkrfox1200"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:mkrwan1300"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:mkrwan1310"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:mkrgsm1400"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:mkrnb1500"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:mkrvidor4000"  # InterruptConfigure.ino uses pin 2
+          - "arduino:samd:adafruit_circuitplayground_m0"
+          - "arduino:samd:mzero_pro_bl"
+          - "arduino:samd:mzero_bl"
+          - "arduino:samd:tian"
+          - "arduino:megaavr:uno2018"
+          # - "arduino:megaavr:nano4809"  # board not found
+          - "arduino:sam:arduino_due_x_dbg"
+        # By default, don't generate size deltas data.
+        enable-deltas-report:
+          - false
+        # Generate size deltas data for this board
+        include:
+          - fqbn: arduino:avr:nano
+            enable-deltas-report: true
+          - fqbn: arduino:samd:mkrzero  # InterruptConfigure.ino uses pin 2
+            enable-deltas-report: true
+
+  #### NOTE installing ATTinyCore has become too problematic for various reasons
+  #### I'll have to revisit this later when the Arduino CLI tool gets their act together
+  # attiny:
+  #   uses: nRF24/.github/.github/workflows/build_arduino.yaml@main
+  #   with:
+  #     platforms: |
+  #       - source-url: "http://drazzy.com/package_drazzy.com_index.json"
+  #         name: "ATTinyCore:avr"
+  #       - name: "arduino:avr"
+  #     sketch-paths: |
+  #       - examples/rf24_ATTiny/rf24ping85
+  #       - examples/rf24_ATTiny/timingSearch3pin
+  #     fqbn: ${{ matrix.fqbn }}
+  #     enable-deltas-report: ${{ matrix.enable-deltas-report }}
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       fqbn:
+  #         - ATTinyCore:avr:attinyx4
+  #         - ATTinyCore:avr:attinyx4opti
+  #         - ATTinyCore:avr:attinyx4micr
+  #         - ATTinyCore:avr:attinyx5
+  #         - ATTinyCore:avr:attinyx5micr
+  #         - ATTinyCore:avr:attinyx8
+  #         - ATTinyCore:avr:attinyx8opti
+  #         - ATTinyCore:avr:attinyx8micr
+  #         - ATTinyCore:avr:attinyx7
+  #         - ATTinyCore:avr:attinyx7opti
+  #         - ATTinyCore:avr:attinyx7micr
+  #         - ATTinyCore:avr:attinyx61
+  #         - ATTinyCore:avr:attinyx61opti
+  #         - ATTinyCore:avr:attinyx41
+  #         - ATTinyCore:avr:attinyx41opti
+  #         - ATTinyCore:avr:attinyx41micr
+  #         # - ATTinyCore:avr:attiny43  # doesn't seem to support USI implementation of SPI
+  #         - ATTinyCore:avr:attiny828
+  #         - ATTinyCore:avr:attiny828opti
+  #         - ATTinyCore:avr:attiny1634
+  #         - ATTinyCore:avr:attiny1634opti
+  #         - ATTinyCore:avr:attinyx313
+  #       # By default, don't generate size deltas data.
+  #       enable-deltas-report:
+  #         - false
+  #       # Generate size deltas data for this board
+  #       include:
+  #         - fqbn: ATTinyCore:avr:attinyx5
+  #           enable-deltas-report: true
+
+  # When using a matrix to compile for multiple boards, it's necessary to use a separate job for the deltas report
+  report:
+    needs: [build] # , attiny]
+    if: github.event_name == 'pull_request'
+    uses: nRF24/.github/.github/workflows/arduino_size_deltas.yaml@main
