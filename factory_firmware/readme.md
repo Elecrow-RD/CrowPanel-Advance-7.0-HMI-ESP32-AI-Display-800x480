@@ -51,10 +51,10 @@ xxxx.ino.partitions.bin-------0x8000
 
 ![flash1](./flash1.jpg)
 
-##### Step5 After the download is complete, blue FINISH will be displayed, and the progress bar at the bottom shows that it has come to an end.
+##### Step4 After the download is complete, blue FINISH will be displayed, and the progress bar at the bottom shows that it has come to an end.
 
 ![flash2](./flash2.jpg)
 
-##### Step6 Press the reset button to show the demo.
+##### Step5 Press the reset button to show the demo.
 
 ![flash8](./flash8.jpg)
