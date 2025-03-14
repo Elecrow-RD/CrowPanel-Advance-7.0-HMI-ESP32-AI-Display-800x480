@@ -1,14 +1,14 @@
-1, Product picture
+#### 1, Product picture
 
 ![Crowpanel Advance ESP32 HMI AI Display](https://www.elecrow.com/media/catalog/product/cache/9e67447b006ee4d9559353b91d12add5/e/s/esp32_advance_hmi_7.0inch_display.jpg)
 
-2, Product version number
+#### 2, Product version number
 
 |      | Hardware | Software | Remark |
 | ---- | -------- | -------- | ------ |
 | 1    | V1.0     | V1.0     | latest |
 
-3, product information
+#### 3, product information
 
 | **Main Chip-**ESP32-S3-WROOM-1-N16R8         |                                                              |
 | -------------------------------------------- | ------------------------------------------------------------ |
@@ -46,18 +46,18 @@
 | Active Area                                  | 156mm*87mm                                                   |
 | Dimensions                                   | 181.26*108.36*16mm                                           |
 
-4, Use the driver module
+#### 4, Use the driver module
 
 | Name | dependency library                      |
 | ---- | --------------------------------------- |
 | LVGL | lvgl/lvgl@8.3.3                         |
 |      | Adafruit GFX Library<br/>version=1.11.0 |
 
-5,Quick Start
+#### 5,Quick Start
 
 
 
-6,Folder structure.
+#### 6,Folder structure.
 
 |--3D file： Contains 3D model files (.stp) for the hardware. These files can be used for visualization, enclosure design, or integration into CAD software.
 
@@ -73,7 +73,7 @@
 
 |--libraries: Includes necessary libraries required for compiling and running the project. These libraries provide drivers and additional functionalities for the hardware.
 
-7,Pin definition
+#### 7,Pin definition
 
 #define HSPI_MISO  4
 #define HSPI_MOSI  6
