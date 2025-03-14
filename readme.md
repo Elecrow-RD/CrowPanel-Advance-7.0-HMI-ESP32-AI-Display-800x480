@@ -54,6 +54,37 @@
 |      | Adafruit GFX Library<br/>version=1.11.0 |
 
 ### 5,Quick Start
+##### Arduino IDE starts
+
+1.Download the library files used by this product to the 'libraries' folder.
+
+C:\Users\Documents\Arduino\libraries\
+
+![2](https://github.com/user-attachments/assets/86c568bb-3921-4a07-ae91-62d7ce752e50)
+
+
+
+2.Open the Arduino IDE
+
+![1](https://github.com/user-attachments/assets/17b4e9af-a863-4bfd-839e-be94f00a33ad)
+
+
+3.Open the code configuration environment and burn it
+
+![3](https://github.com/user-attachments/assets/1a58d8ff-616b-4b71-9465-c2dac03f3399)
+
+
+
+##### ESP-IDF starts
+
+1.Right-click on an empty space in the project folder and select "Open with VS Code" to open the project.
+![4](https://github.com/user-attachments/assets/a842ad62-ed8b-49c0-bfda-ee39102da467)
+
+
+
+2.In the IDF plug-in, select the port, then compile and flash
+![5](https://github.com/user-attachments/assets/76b6182f-0998-4496-920d-d262a5142df3)
+
 
 
 
