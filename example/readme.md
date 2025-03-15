@@ -1,4 +1,4 @@
-## **The basic tutorial case is divided into 1-9 lessons:**
+## **The basic tutorial case is divided into 1-11 lessons:**
 
 1,Introduction to CrowPanel-Advance-HMI Screen
 
