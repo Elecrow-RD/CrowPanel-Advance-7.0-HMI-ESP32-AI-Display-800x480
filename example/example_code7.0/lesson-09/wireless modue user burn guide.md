@@ -65,7 +65,7 @@ TX connection to the RX of the serial module;
 
 GND connection to the GND of the serial module.
 
-Connect the serial module to the computer and find the corresponding serial device number (e.g. COM35) in the Task Manager.
+Connect the serial module to the computer and find the corresponding serial device number (e.g. COM7) in the Task Manager.
 
 ![6](https://github.com/user-attachments/assets/6eaab326-cc9a-4a39-9f3e-b009f8ef1d32)
 
