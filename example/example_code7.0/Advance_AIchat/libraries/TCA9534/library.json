@@ -1,0 +1,20 @@
+{
+    "name": "TCA9534",
+    "keywords": "i2c,wire,ioex",
+    "description": "Arduino library for TCA9534 Low Voltage 8-Bit I2C and SMBUS Low-Power I/O Expander with Interrupt Output and Configuration Registers",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/hideakitai/TCA9534.git"
+    },
+    "authors":
+    {
+        "name": "Hideaki Tai",
+        "url": "https://github.com/hideakitai",
+        "maintainer": true
+    },
+    "version": "0.1.1",
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "*"
+}
