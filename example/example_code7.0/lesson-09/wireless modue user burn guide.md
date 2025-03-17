@@ -67,12 +67,12 @@ GND connection to the GND of the serial module.
 
 Connect the serial module to the computer and find the corresponding serial device number (e.g. COM35) in the Task Manager.
 
-![6](https://github.com/user-attachments/assets/2fa595f2-9d48-4757-a29c-6a9079b63a22)
+![6](https://github.com/user-attachments/assets/6eaab326-cc9a-4a39-9f3e-b009f8ef1d32)
 
 
 Open Arduino or open the corresponding serial port under any serial port tool.
 
-![7](https://github.com/user-attachments/assets/a75fc0ae-fa5f-49c1-952e-d3fc28157bb3)
+![7](https://github.com/user-attachments/assets/475d212e-7c78-440a-ab17-4e65658dc8e0)
 
 
 Press and hold the BOOT key and then press the RST key to enter burn mode.
