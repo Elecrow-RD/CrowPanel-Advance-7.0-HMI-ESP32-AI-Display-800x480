@@ -10,16 +10,19 @@
 | 4    | Soldering Iron & Wire      |            |
 
  Single Female DuPont Cable
+ 
 ![1](https://github.com/user-attachments/assets/eaec3064-b89f-493b-8b93-12a9dbb2f7dc)
 
 
 
 Wirless Module H2/C6
+
 ![2](https://github.com/user-attachments/assets/a8fa48b8-56b8-4b15-8312-6d496cb194b3)
 
 
 
 Serial modules (CH340/CP2102, etc. are fine)
+
 ![3](https://github.com/user-attachments/assets/8fbcc7b0-2959-4898-8eea-895ba3edc79d)
 
 
@@ -45,7 +48,9 @@ The burn-in pins for the Wirless Module H2/C6 are the same, and the four wires t
 Module Pin Definition
 
 The finished soldering is shown below.
+
 ![4](https://github.com/user-attachments/assets/8d711279-4d25-4057-9e8d-fadda9c70a0a)
+
 ![5](https://github.com/user-attachments/assets/47befec5-00ff-4639-9327-f997d809d3e8)
 
  
@@ -61,14 +66,17 @@ TX connection to the RX of the serial module;
 GND connection to the GND of the serial module.
 
 Connect the serial module to the computer and find the corresponding serial device number (e.g. COM35) in the Task Manager.
+
 ![6](https://github.com/user-attachments/assets/2fa595f2-9d48-4757-a29c-6a9079b63a22)
 
 
 Open Arduino or open the corresponding serial port under any serial port tool.
+
 ![7](https://github.com/user-attachments/assets/a75fc0ae-fa5f-49c1-952e-d3fc28157bb3)
 
 
 Press and hold the BOOT key and then press the RST key to enter burn mode.
+
 ![8](https://github.com/user-attachments/assets/9f0fea5e-4f69-4f04-a210-d4a6a68bc5b6)
 
 
