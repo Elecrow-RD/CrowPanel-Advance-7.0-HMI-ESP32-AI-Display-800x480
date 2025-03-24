@@ -54,7 +54,9 @@
 |      | Adafruit GFX Library<br/>version=1.11.0 |
 
 ### 5,Quick Start
-##### Arduino IDE starts
+### Arduino IDE starts
+
+#### Teaching Case Path：./example/example_code7.0
 
 1.Download the library files used by this product to the 'libraries' folder.
 
@@ -75,7 +77,9 @@ C:\Users\Documents\Arduino\libraries\
 
 
 
-##### ESP-IDF starts
+### ESP-IDF starts
+
+#### Teaching Case Path：./example/idf_code
 
 1.Right-click on an empty space in the project folder and select "Open with VS Code" to open the project.
 ![4](https://github.com/user-attachments/assets/a842ad62-ed8b-49c0-bfda-ee39102da467)
