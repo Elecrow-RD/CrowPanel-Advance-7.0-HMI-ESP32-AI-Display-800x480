@@ -108,6 +108,8 @@ C:\Users\Documents\Arduino\libraries\
 
 |--libraries: Includes necessary libraries required for compiling and running the project. These libraries provide drivers and additional functionalities for the hardware.
 
+|--Squareline_studio Instructions for use: Squareline_studio instructions: Demonstrate the use of squareline studio.
+
 ### 7,Pin definition
 
 #define HSPI_MISO  4
