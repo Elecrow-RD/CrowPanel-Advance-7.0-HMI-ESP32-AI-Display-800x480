@@ -1,3 +1,14 @@
+## Menu
+### 1, Product picture
+### 2, Product version number
+### 3, product information
+### 4, Use the driver module
+### 5,Quick Start
+### 6,Folder structure.
+### 7,Pin definition
+### 8,Guidelines for downloading some of the files from the github repository
+
+
 ### 1, Product picture
 
 ![Crowpanel Advance ESP32 HMI AI Display](https://www.elecrow.com/media/catalog/product/cache/9e67447b006ee4d9559353b91d12add5/e/s/esp32_advance_hmi_7.0inch_display.jpg)
@@ -138,3 +149,33 @@ cfg.pin_dc = 41;
 
 #define TOUCH_GT911_SCL 16
 #define TOUCH_GT911_SDA 15
+
+### 8,Guidelines for downloading some of the files from the github repository
+
+##### 1, open the link in your browser: https://downgit.github.io/
+
+##### 2, paste the URL of the GitHub destination folder in the input box (example format: `https://github.com/username/repository name/tree/branch name/folder path`)
+
+![github_download1](https://github.com/user-attachments/assets/8986d646-34c3-4c71-88ff-08199a8bc14a)
+
+##### 3, even a that way to download the file.
+
+①Click the “Create Download Link” button to create a download link, copy the link and open it with your browser to download the contents of the corresponding folder directly.
+
+![github_download2](https://github.com/user-attachments/assets/cf377329-8766-4f20-b1fa-82ce0e8b26a3)
+
+②Click Download, and you can also download it directly.
+
+![github_download3](https://github.com/user-attachments/assets/47f9f682-ce5d-4507-bc43-ca90acb1ab74)
+
+
+
+#### Note: DownGit downloads are stored by default in **your browser's default downloads folder**, usually:
+
+- **Windows**: `C:\Users\your username\Downloads\` (downloads folder)
+- **macOS**: `~/Downloads/` (downloads folder)
+- **Linux**: `~/Downloads/` (Downloads folder)
+
+If you change the default download path in your browser, the file will be stored in the download location you set. You can find the downloaded file path in your browser's **Download History** (shortcut `Ctrl + J` or `Cmd + J`).
+
+
