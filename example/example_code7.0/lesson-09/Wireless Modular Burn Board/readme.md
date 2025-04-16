@@ -44,7 +44,9 @@ Connect the serial module to the computer and find the corresponding serial devi
 
 Open Arduino or open the corresponding serial port under any serial port tool.
 
-![5](https://github.com/user-attachments/assets/78533273-9756-4060-b315-d2fa16744b19)
+![5](https://github.com/user-attachments/assets/c6e7d501-4a16-4337-b3da-f033fc4e0583)
+
+
 
 
 Press and hold the BOOT key and then press the RST key to enter burn mode.
