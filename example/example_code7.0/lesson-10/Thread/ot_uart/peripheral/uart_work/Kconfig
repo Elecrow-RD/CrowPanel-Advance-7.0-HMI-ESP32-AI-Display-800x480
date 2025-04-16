@@ -1,0 +1,56 @@
+menu "RFID_Config"
+
+    config UART_Baud
+        int "UART communication Baud"
+        default 115200
+        help
+            baud of serial communication  
+
+    config RX_BUF_SIZE
+        int "receive buff max size"
+        default 1024
+        help
+            max size of receive buff
+
+    config TX_BUF_SIZE
+        int "send buff max size"
+        default 512
+        help
+            max size of send buff
+
+    config HOST_TXD_PIN
+        int "the HOST UART Tx pin"
+        default -1
+        help
+            gpio port of the UART
+
+    config HOST_RXD_PIN
+        int "the HOST UART Rx pin"
+        default -1
+        help
+            gpio port of the UART
+
+    config UART_HOST_Num
+        int "the HOST UART port num"
+        default 0
+        help
+            HOST port of the UART
+
+    config CLI_TXD_PIN
+        int "the CLI UART Tx pin"
+        default 20
+        help
+            gpio port of the UART
+
+    config CLI_RXD_PIN
+        int "the CLI UART Rx pin"
+        default 19
+        help
+            gpio port of the UART
+
+    config UART_CLI_Num
+        int "the CLI UART port num"
+        default 1
+        help
+            HOST port of the UART
+endmenu
