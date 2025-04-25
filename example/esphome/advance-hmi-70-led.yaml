@@ -1,0 +1,233 @@
+esphome:
+  name: advance-hmi-43-led
+  friendly_name: Advance_HMI_43_LED
+  platformio_options:
+    build_flags: "-DBOARD_HAS_PSRAM"
+    board_build.esp-idf.memory_type: qio_opi
+    board_build.flash_mode: dio
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+    sdkconfig_options:
+      CONFIG_ESP32S3_DEFAULT_CPU_FREQ_240: y
+      CONFIG_ESP32S3_DATA_CACHE_64KB: y
+      CONFIG_SPIRAM_FETCH_INSTRUCTIONS: y
+      CONFIG_SPIRAM_RODATA: y
+
+psram:
+  mode: octal
+  speed: 80MHz 
+
+logger:
+
+api:
+  encryption:
+    key: "QBWNa46GbVW4ootHxkQtIFQ+fQyUIpWM4Xa6ggGe3vg="
+
+ota:
+  - platform: esphome
+    password: "165fa4ccdfd282d4400876605ef95e8b"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  ap:
+    ssid: "Advance-Hmi-43-Led"
+    password: "ce1wfZSuEaZS"
+
+captive_portal:
+
+switch:
+  - platform: gpio
+    pin: GPIO19
+    name: "LED"
+    id: led_output
+    on_turn_on:
+      # Switch bulb diagram
+      - lvgl.image.update:
+          id: lvgl_light
+          src: light_on
+      # Switch the status label text to ON
+      - lvgl.label.update:
+          id: label_light_state
+          text: "ON"
+    on_turn_off:
+      # Switch bulb diagram
+      - lvgl.image.update:
+          id: lvgl_light
+          src: light_off
+      # Switch the status label text to OFF
+      - lvgl.label.update:
+          id: label_light_state
+          text: "OFF"
+          
+  - platform: gpio
+    name: "PCF9554A Pin #1"
+    pin:
+      pca9554: pca9557_device
+      number: 1
+      mode:
+        output: true
+      inverted: true
+
+output:
+  - platform: ledc
+    pin:
+      number: GPIO2
+    id: backlight_output
+
+light:
+  - platform: monochromatic
+    output: backlight_output
+    name: LCD Backlight
+    id: led
+    restore_mode: ALWAYS_ON
+    default_transition_length: 0s
+
+image:
+  - file: "small_temp.png"
+    id: small_temp
+    resize: 200x200
+    type: RGB565
+  - file: "small_hum.png"
+    id: small_hum
+    resize: 200x200
+    type: RGB565
+  - file: "small_logo.png"
+    id: small_logo
+    resize: 200x100
+    type: RGB565
+  - file: "light.png"
+    id: light_on
+    resize: 200x200
+    type: RGB565
+  - file: "no_light.png"
+    id: light_off
+    resize: 200x200
+    type: RGB565
+
+i2c:
+  sda: 15
+  scl: 16
+  scan: true
+
+pca9554:
+  - id: 'pca9557_device'
+    address: 0x18
+
+sensor:
+  - platform: aht10
+    variant: AHT20
+    temperature:
+      name: "Room Temperature"
+      id: room_temp
+      unit_of_measurement: "°C"
+      accuracy_decimals: 1
+    humidity:
+      name: "Room Humidity"
+      id: room_hum
+      unit_of_measurement: "%"
+      accuracy_decimals: 1
+    update_interval: 1s
+
+display:
+  - platform: rpi_dpi_rgb
+    id: main_display
+    color_order: RGB
+    invert_colors: true
+    update_interval: never
+    auto_clear_enabled: false
+    dimensions:
+      width: 800
+      height: 480
+    de_pin: 42
+    hsync_pin: 40
+    vsync_pin: 41
+    pclk_pin: 39
+    pclk_frequency: 20MHz
+    hsync_pulse_width: 4
+    hsync_front_porch: 8
+    hsync_back_porch: 8
+    vsync_pulse_width: 4
+    vsync_front_porch: 8
+    vsync_back_porch: 8
+    data_pins:
+      red:
+        - 7
+        - 17
+        - 18
+        - 3
+        - 46
+      green:
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+      blue:
+        - 21
+        - 47
+        - 48
+        - 45
+        - 38
+
+time:
+  - platform: homeassistant
+    id: time_comp
+
+lvgl:
+  log_level: INFO
+  color_depth: 16
+  bg_color: 0xFFFFFF
+  text_font: montserrat_26
+  widgets:
+    - image:
+        id: lvgl_logo
+        src: small_logo
+        x: 300
+        y: 20
+    - image:
+        id: lvgl_temp
+        src: small_temp
+        x: 150
+        y: 250
+    - image:
+        id: lvgl_hum
+        src: small_hum
+        x: 400
+        y: 250
+    - image:
+        id: lvgl_light
+        src: light_off    # Default 'Turn off lights' image
+        x: 650            # You can adjust the position by yourself
+        y: 250
+    - label:
+        id: label_temp
+        x: 90
+        y: 350
+        text: "Temp: --°C"
+    - label:
+        id: label_hum
+        x: 350
+        y: 350
+        text: "Humi: --%"
+    - label:
+        id: label_light_state
+        x: 650
+        y: 350
+        text: "OFF"
+
+interval:
+  - interval: 1s
+    then:
+      - lambda: |-
+          char temp_str[20];
+          char hum_str[20];
+          snprintf(temp_str, sizeof(temp_str), "Temp: %.1f°C", id(room_temp).state);
+          snprintf(hum_str, sizeof(hum_str), "Humi: %.1f%%", id(room_hum).state);
+          lv_label_set_text(id(label_temp), temp_str);
+          lv_label_set_text(id(label_hum), hum_str);
+
