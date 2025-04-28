@@ -1,0 +1,14 @@
+funasr
+modelscope==1.17.1
+numpy<=1.26.4
+soundfile
+torch<=2.3
+torchaudio
+datasets==2.21.0
+loguru
+addict
+pillow
+simplejson
+sortedcontainers
+openai
+websockets==12.0
