@@ -1,0 +1,56 @@
+*************************** START ****************************
+START TIME: 202408221843
+CONNECT BAUD: 115200
+set state: ESP_DL_SYNC
+serial port opened
+-----------
+baud:115200
+root baud:115200
+-------------
+===============BAUD : 115200===============CALL DEVICE SYNC
+connecting...
+mac l: 0x335ab9a8
+mac h: 0x64e8
+get mac res: 1
+get flash id : 0x001740c8
+manufacturer_id: 0xc8
+device_id: 0x4017
+Wrote 15104 bytes (10430 compressed) at 0x00000000 in 0.3 seconds (effective 403.3 kbit/s)...
+Hash of data verified.Wrote 3072 bytes (137 compressed) at 0x00008000 in 0.0 seconds (effective 527.9 kbit/s)...
+Hash of data verified.Wrote 8192 bytes (47 compressed) at 0x0000e000 in 0.1 seconds (effective 702.7 kbit/s)...
+Hash of data verified.Wrote 936432 bytes (558318 compressed) at 0x00010000 in 8.6 seconds (effective 873.5 kbit/s)...
+Hash of data verified.
+Leaving...
+com closed
+Use time: 13 s
+Download result: PASS
+*************************** END ****************************
+
+*************************** START ****************************
+START TIME: 202408221845
+CONNECT BAUD: 115200
+set state: ESP_DL_SYNC
+serial port opened
+-----------
+baud:115200
+root baud:115200
+-------------
+===============BAUD : 115200===============CALL DEVICE SYNC
+connecting...
+mac l: 0x335ab9a8
+mac h: 0x64e8
+get mac res: 1
+get flash id : 0x001740c8
+manufacturer_id: 0xc8
+device_id: 0x4017
+Wrote 15104 bytes (10430 compressed) at 0x00000000 in 0.3 seconds (effective 370.9 kbit/s)...
+Hash of data verified.Wrote 3072 bytes (137 compressed) at 0x00008000 in 0.0 seconds (effective 501.7 kbit/s)...
+Hash of data verified.Wrote 8192 bytes (47 compressed) at 0x0000e000 in 0.1 seconds (effective 704.6 kbit/s)...
+Hash of data verified.Wrote 1455728 bytes (881223 compressed) at 0x00010000 in 13.4 seconds (effective 867.6 kbit/s)...
+Hash of data verified.
+Leaving...
+com closed
+Use time: 19 s
+Download result: PASS
+*************************** END ****************************
+
