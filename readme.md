@@ -17,7 +17,8 @@
 
 |      | Hardware | Software | Remark |
 | ---- | -------- | -------- | ------ |
-| 1    | V1.0     | V1.0     | latest |
+| 1    | V1.0     | V1.0     | old    |
+| 2    | V1.2     | V1.2     | latest |
 
 ### 3, product information
 
